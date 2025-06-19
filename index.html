@@ -37,39 +37,27 @@
         <div class="container-content"><span class="fixed-text">Coding is</span><span class="blinking-cursor">|</span><span class="change-text"></span></div>
     </div>
     <script>
-        texts=['life','fun','hard', "easy", "amazing", "hard until you master it", "for learners"]
+        words=['life','fun','hard', "easy", "amazing", "hard until you master it", "for learners"]
         let change=document.querySelector(".change-text");
         change.style.color="pink";
         let wordIndex=0;
-        let charIndex=0;
-        let isDeleting = false;
-        const typeEffect =()=>{
-            const currentWord = words[wordIndex];
-            const currentChar= currentWord.substring(0, charIndex);
-            change.textContent= currentChar;
-            change.classList.add("stop-blinking");
-            if (!isDeleting && charIndex < currentWord.length){
+        let charIndex= 0 ;
+        isDeleting = false;
+        
+        function startTyping(){
+             const currentWord = words[wordIndex];
+             const  currentChar = currentWord.substring(0, charIndex);
+             
+             if (!isDeleting){
                 charIndex++;
-                setimeout(typeEffext, 200);
+                change.textContent=currentWord;
+             }
 
-            }
-            else if (isDeleting && charIndex>0){
-                charIndex--;
-                setTimeout(typeEffect, 100);
-            }
-            else{
-                isDeleting = !isDeleting;
-                change.classList.remove("-stop-blinking");
-                wordIndex= !isDeleting ? (wordIndex+1)%
-            }
         }
-        if (texts){
-            texts.forEach((value, index)=>{
-                setTimeout(()=>{change.innerText=value}, index*1000)});
-            
-        }
+       
+
         
-        
+
 
     </script>
 </body>
