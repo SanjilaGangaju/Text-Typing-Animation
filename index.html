@@ -37,24 +37,43 @@
         <div class="container-content"><span class="fixed-text">Coding is</span><span class="blinking-cursor">|</span><span class="change-text"></span></div>
     </div>
     <script>
-        words=['life','fun','hard', "easy", "amazing", "hard until you master it", "for learners"]
+        let words=['life','fun','hard', "easy", "amazing", "hard until you master it", "for learners"]
         let change=document.querySelector(".change-text");
-        change.style.color="pink";
-        let wordIndex=0;
-        let charIndex= 0 ;
-        isDeleting = false;
-        
-        function startTyping(){
-             const currentWord = words[wordIndex];
-             const  currentChar = currentWord.substring(0, charIndex);
-             
-             if (!isDeleting){
-                charIndex++;
-                change.textContent=currentWord;
-             }
+        change.style.color="yellow";
+        let wordIndex=0
+        let charIndex=0
+        function typeCharacter(){
+            const wordChange= words[wordIndex];
+            const charChange= wordChange.substring(0, charIndex+1);
+            change.textContent=charChange;
+            if (charIndex < wordChange.length){
+                setTimeout(()=>{
+                    charIndex++;
+                    typeCharacter();
+                }, 100);
+            }
+            else{
+                setTimeout(()=>{
+                       wordIndex= (wordIndex+1) % words.length;
+                       charIndex=0;
+                       typeCharacter();
+                }, 1000);
+               
+                
 
+            }
+            
+            
+            
         }
-       
+        typeCharacter();
+        
+
+        
+        
+        
+        
+        
 
         
 
