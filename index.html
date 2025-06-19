@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Typing Effect</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+           
+
+        }
+        .container{
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container-content{
+            color: #fff;
+            font-size: 3rem;
+            height: 20vh;
+            width: 50vh;
+        }
+        .blinking-cursor{
+            color: pink;
+            
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container-content"><span class="fixed-text">Coding is</span> <span class="change-text">the Future</span><span class="blinking-cursor">|</span></div>
+    </div>
+    <script>
+        texts=['life','fun','hard', "easy", "amazing", "hard until you master it", "for learners"]
+        let change=document.querySelector(".change-text");
+        change.style.color="pink";
+        if (texts){
+            texts.forEach((value, index)=>{
+                setTimeout(()=>{change.innerText=value}, index*1000)});
+            
+        }
+        
+        
+
+    </script>
+</body>
+</html>
